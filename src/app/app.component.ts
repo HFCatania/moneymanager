@@ -12,9 +12,7 @@ export class AppComponent {
   title = 'Money Managing App';
   loggedIn: boolean;
   currentUser: User;
-  currentPage: string = 'login'; 
-  currentPageLoggedIn: string = 'splash';
-  currentPageNotLoggedIn: string = 'login-splash';
+  currentPage: string = 'transactions'; 
 
   caleb: User = {
     id: '3',
@@ -46,19 +44,19 @@ export class AppComponent {
     //console.log("userService.loggedIn = " + this.userService.loggedIn);
   }
 
-  setCurrentPageLoggedIn(newPage: string){
-    this.currentPageLoggedIn = newPage;
-    // this.currentPage = newPage; 
-  }
+  // setCurrentPageLoggedIn(newPage: string){
+  //   this.currentPageLoggedIn = newPage;
+  //   // this.currentPage = newPage; 
+  // }
 
-  setCurrentPageNotLoggedIn(newPage: string){
-    this.currentPageNotLoggedIn = newPage; 
-  }
+  // setCurrentPageNotLoggedIn(newPage: string){
+  //   this.currentPageNotLoggedIn = newPage; 
+  // }
 
-  logout(){
-    this.currentPageLoggedIn = 'splash';
-    this.currentPageNotLoggedIn = 'login-splash';
-    this.userService.clearUser();
-  }
+  // logout(){
+  //   this.currentPageLoggedIn = 'splash';
+  //   this.currentPageNotLoggedIn = 'login-splash';
+  //   this.userService.clearUser();
+  // }
 
 }

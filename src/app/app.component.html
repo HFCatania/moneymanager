@@ -1,58 +1,41 @@
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<div>
+  <ul class="nav nav-pills justify-content-center" *ngIf="userService.loggedIn">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='deposit'"  (click)="setCurrentPage('deposit')">Deposit</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='withdraw'" (click)="setCurrentPage('withdraw')">Withdraw</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='addaccount'" (click)="setCurrentPage('addaccount')">Add Account</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='deleteaccount'" (click)="setCurrentPage('deleteaccount')">Delete Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="currentPage ==='transactions'" (click)="setCurrentPage('transactions')">Transfer</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="userService.clearUser()">Log Out</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container-fluid">
+  <app-deposit *ngIf="currentPage =='deposit' && userService.loggedIn"></app-deposit>
+  <app-withdraw *ngIf="currentPage =='withdraw' && userService.loggedIn"></app-withdraw>
+  <app-add-account *ngIf="currentPage == 'addaccount' && userService.loggedIn"></app-add-account>
+  <app-delete-account *ngIf="currentPage == 'deleteaccount' && userService.loggedIn"></app-delete-account>
+  <app-transactions *ngIf="currentPage == 'transactions' && userService.loggedIn"></app-transactions>
+  <app-login *ngIf="!userService.loggedIn"></app-login>
+</div>
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="navbar">
-        <a class="navbar-brand">BeanCounter</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item" *ngIf="userService.loggedIn" >
-              <button class="btn btn-primary" (click)="setCurrentPageLoggedIn('deposit')">Deposit</button>
-            </li>
-            <li class="nav-item" *ngIf="userService.loggedIn">
-              <button class="btn btn-primary" (click)="setCurrentPageLoggedIn('withdraw')">Withdraw</button>
-            </li>
-            <li class="nav-item" *ngIf="userService.loggedIn">
-              <button class="btn btn-primary" (click)="setCurrentPageLoggedIn('addaccount')">Add Account</button>
-            </li>
-            <li class="nav-item" *ngIf="userService.loggedIn">
-              <button class="btn btn-primary" (click)="setCurrentPageLoggedIn('deleteaccount')">Delete Account</button>
-            </li>
-            <li class="nav-item" *ngIf="userService.loggedIn">
-              <button class="btn btn-primary" (click)="setCurrentPageLoggedIn('transactions')">Transactions</button>
-            </li>
-            <li class="nav-item" *ngIf="userService.loggedIn">
-              <button class="btn btn-primary" (click)="logout()">Log Out</button>
-            </li>
-            <li class="nav-item"*ngIf="!userService.loggedIn">
-              <button class="btn btn-primary" (click)="setCurrentPageNotLoggedIn('login')">Login</button>
-          </li>
-          <li class="nav-item"*ngIf="!userService.loggedIn">
-              <button class="btn btn-primary" (click)="setCurrentPageNotLoggedIn('create')">Register</button>
-          </li>
-          </ul>
-        </div>
-      </nav>
-  
-       
-      <div class="row" style="margin-top: 10%; margin-bottom: auto;" id="app-buttons">
-        <div class="card col-md-4" style=" margin-left: 33%;"> 
-          <app-deposit *ngIf="currentPageLoggedIn =='deposit' && userService.loggedIn" ></app-deposit>
-          <app-withdraw *ngIf="currentPageLoggedIn =='withdraw' && userService.loggedIn"></app-withdraw>
-          <app-add-account *ngIf="currentPageLoggedIn == 'addaccount' && userService.loggedIn"></app-add-account>
-          <app-delete-account *ngIf="currentPageLoggedIn == 'deleteaccount' && userService.loggedIn"></app-delete-account>
-          <app-transactions *ngIf="currentPageLoggedIn == 'transactions' && userService.loggedIn"></app-transactions>
-          <app-login *ngIf="!userService.loggedIn && currentPageNotLoggedIn == 'login'"></app-login>
-          <app-create-user *ngIf="!userService.loggedIn && currentPageNotLoggedIn == 'create'"></app-create-user>
-          <app-splash *ngIf="userService.loggedIn && currentPageLoggedIn == 'splash'"></app-splash>
-          <app-login-splash *ngIf="!userService.loggedIn && currentPageNotLoggedIn == 'login-splash'"></app-login-splash>
-        </div>
-      </div>
-         
-
-  <button (click)="toggleLogin()">Toggle Login</button>
-  <div *ngIf="loggedIn">
-    Now Logged In
-  </div>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
