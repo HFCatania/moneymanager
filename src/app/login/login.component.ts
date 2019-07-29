@@ -9,7 +9,7 @@ import { UserService } from '../../service/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  // @Input('loginStatus') loggedIn: boolean;
+  currentView: string = 'login';
 
   constructor(private userService: UserService) { }
 
@@ -33,5 +33,9 @@ export class LoginComponent implements OnInit {
         this.userService.loggedIn = true;
       }
     });
+  }
+
+  setCurrentView(newPage: string){
+    this.currentView = newPage;
   }
 }
