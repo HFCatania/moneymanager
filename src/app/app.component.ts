@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'Money Managing App';
   loggedIn: boolean;
   currentUser: User;
-  currentPage: string = 'withdraw'; 
+  currentPage: string = 'deleteaccount'; 
 
   caleb: User = {
     id: '3',

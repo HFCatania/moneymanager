@@ -1,7 +1,16 @@
-<p>Enter intial balance</p>
-<input [(ngModel)]="newBalance" type="number">
+<div class="row">
+    <div class="card col-md-4 offset-md-4" style="margin-top: 5%;">
+        <h3 style="text-align: center;">Add Account:</h3>
+        <p>Enter intial balance:</p>
+        <form class="form-group">
+            <input class="form-control" [(ngModel)]="newBalance" type="number">
+            <div style="margin-top: 2%;">
+                <button class="col-md-6 offset-md-3 btn btn-primary" type="button" (click)="makeNewAccount()" [disabled]="!newBalance">Create Account</button>
+            </div>
+        </form>
 
-<button type="button" (click)="makeNewAccount()" [disabled]="!newBalance">Create Account</button>
-<p *ngIf="createdAccount">
-    Created Account #{{createdAccount.id}} with balance ${{createdAccount.balance}}
-</p>
+        <p *ngIf="createdAccount">
+            Created Account #{{createdAccount.id}} with balance ${{createdAccount.balance}}
+        </p>
+    </div>
+</div>
