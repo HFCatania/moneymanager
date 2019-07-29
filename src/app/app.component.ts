@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'Money Managing App';
   loggedIn: boolean;
   currentUser: User;
-  currentPage: string = 'login'; 
+  currentPage: string = 'deposit'; 
 
   caleb: User = {
     id: '3',
@@ -37,12 +37,10 @@ export class AppComponent {
       this.loggedIn = false;
       this.currentUser = null;
       this.userService.clearUser();
-      //console.log("if"); 
     } else {
       this.loggedIn = true;
       this.currentUser = this.caleb;
-      this.userService.setUser(this.caleb); 
-      //console.log("else");
+      this.userService.setUser(this.caleb);
     }
     //console.log("userService.loggedIn = " + this.userService.loggedIn);
   }

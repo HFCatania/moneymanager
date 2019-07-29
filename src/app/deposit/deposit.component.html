@@ -1,15 +1,25 @@
-<h3>Deposit</h3>
+<div class="row">
+    <div class="col-md-4 offset-md-4" style="margin-top: 5%;">
+        <h3 style="text-align: center;">Deposit</h3>
 
-Select Account:
-<select [(ngModel)]="currentAccountTo" (ngModelChange)="setCurrentAccountTo(currentAccountTo)">
-    <option *ngFor="let acc of accounts" [ngValue]="acc">
-        {{acc.id}}, ${{acc.balance}}
-    </option>
-</select>
-
-<div>
-    <p>
-        <input type="text" name="value" placeholder="enter amount" id='amount'/>
-        <input (click)="depositFunds()" type="button" value='Make_Deposit'/>
-    </p>
+        Select Account:
+        <select class="custom-select custom-select-lg mb-3" [(ngModel)]="currentAccountTo" (ngModelChange)="setCurrentAccountTo(currentAccountTo)">
+            <option *ngFor="let acc of accounts" [ngValue]="acc">
+                {{acc.id}}, ${{acc.balance}}
+            </option>
+        </select>
+        
+        <div>
+            <form class="form-group">
+                <!-- <input class="form-control" type="text" name="value" placeholder="enter amount" id='amount'/> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="number" placeholder="enter amount" class="form-control" aria-label="Amount">
+                </div>
+                <button class="col-md-12 btn btn-primary" style="margin-top: 3%;" (click)="depositFunds()">Make Deposit</button>
+            </form>
+        </div>
+    </div>
 </div>

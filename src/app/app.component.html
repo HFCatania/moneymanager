@@ -1,46 +1,39 @@
 <head>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
 </head>
 <div>
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">{{ title }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item" *ngIf="userService.loggedIn">
-          <button class="btn btn-primary" (click)="setCurrentPage('deposit')">Deposit</button>
-        </li>
-        <li class="nav-item" *ngIf="userService.loggedIn">
-          <button class="btn btn-primary" (click)="setCurrentPage('withdraw')">Withdraw</button>
-        </li>
-        <li class="nav-item" *ngIf="userService.loggedIn">
-          <button class="btn btn-primary" (click)="setCurrentPage('addaccount')">Add Account</button>
-        </li>
-        <li class="nav-item" *ngIf="userService.loggedIn">
-          <button class="btn btn-primary" (click)="setCurrentPage('deleteaccount')">Delete Account</button>
-        </li>
-        <li class="nav-item" *ngIf="userService.loggedIn">
-          <button class="btn btn-primary" (click)="setCurrentPage('transactions')">Transactions</button>
-        </li>
-        <li class="nav-item" *ngIf="userService.loggedIn">
-          <button class="btn btn-primary" (click)="userService.clearUser()">Log Out</button>
-        </li>
-      </ul>
-    </div>
-  </nav> -->
-  <div class="container-fluid">
-    <app-deposit *ngIf="currentPage =='deposit' && userService.loggedIn"></app-deposit>
-    <app-withdraw *ngIf="currentPage =='withdraw' && userService.loggedIn"></app-withdraw>
-    <app-add-account *ngIf="currentPage == 'addaccount' && userService.loggedIn"></app-add-account>
-    <app-delete-account *ngIf="currentPage == 'deleteaccount' && userService.loggedIn"></app-delete-account>
-    <app-transactions *ngIf="currentPage == 'transactions' && userService.loggedIn"></app-transactions>
-    <app-login *ngIf="!userService.loggedIn"></app-login>
-  </div>
+  <ul class="nav nav-pills justify-content-center" *ngIf="userService.loggedIn">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='deposit'"  (click)="setCurrentPage('deposit')">Deposit</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='withdraw'" (click)="setCurrentPage('withdraw')">Withdraw</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='addaccount'" (click)="setCurrentPage('addaccount')">Add Account</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="currentPage ==='deleteaccount'" (click)="setCurrentPage('deleteaccount')">Delete Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="currentPage ==='transactions'" (click)="setCurrentPage('transactions')">Transactions</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="userService.clearUser()">Log Out</a>
+    </li>
+  </ul>
 </div>
+
+<div class="container-fluid">
+  <app-deposit *ngIf="currentPage =='deposit' && userService.loggedIn"></app-deposit>
+  <app-withdraw *ngIf="currentPage =='withdraw' && userService.loggedIn"></app-withdraw>
+  <app-add-account *ngIf="currentPage == 'addaccount' && userService.loggedIn"></app-add-account>
+  <app-delete-account *ngIf="currentPage == 'deleteaccount' && userService.loggedIn"></app-delete-account>
+  <app-transactions *ngIf="currentPage == 'transactions' && userService.loggedIn"></app-transactions>
+  <app-login *ngIf="!userService.loggedIn"></app-login>
+</div>
+
 
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

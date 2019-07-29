@@ -15,7 +15,7 @@ export class UserService {
 
 
   constructor(private http: HttpClient) {
-    this.loggedIn = false;
+    this.loggedIn = true;
     // this.currentUser = {
     //   id: '17',
     //   firstName: 'John',
