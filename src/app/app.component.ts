@@ -25,8 +25,7 @@ export class AppComponent {
     email: 'z'
   }
 
-  constructor(public userService: UserService){
-  }
+  constructor(public userService: UserService){ }
 
   ngOnInit() {
    this.loggedIn = this.userService.loggedIn; 
@@ -39,12 +38,10 @@ export class AppComponent {
       this.loggedIn = false;
       this.currentUser = null;
       this.userService.clearUser();
-      //console.log("if"); 
     } else {
       this.loggedIn = true;
       this.currentUser = this.caleb;
-      this.userService.setUser(this.caleb); 
-      //console.log("else");
+      this.userService.setUser(this.caleb);
     }
     //console.log("userService.loggedIn = " + this.userService.loggedIn);
   }
