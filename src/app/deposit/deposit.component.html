@@ -11,14 +11,13 @@
         
         <div>
             <form class="form-group">
-                <!-- <input class="form-control" type="text" name="value" placeholder="enter amount" id='amount'/> -->
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">$</span>
                     </div>
                     <input type="number" placeholder="enter amount" class="form-control" aria-label="Amount">
                 </div>
-                <button class="col-md-12 btn btn-primary" style="margin-top: 3%;" (click)="depositFunds()">Make Deposit</button>
+                <button id="amount" class="col-md-6 btn btn-primary offset-md-3" style="margin-top: 3%;" (click)="depositFunds()">Make Deposit</button>
             </form>
         </div>
     </div>
